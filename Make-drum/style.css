@@ -1,0 +1,53 @@
+html {
+  font-size: 62.6%;
+  font-family: "Poppins", sans-serif;
+}
+
+.background {
+  position: absolute;
+  background: no-repeat center url("https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.keys {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10rem;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+.keys-item {
+  text-align: center;
+  width: 10rem;
+  border: 3px solid black;
+  border-radius: 3px;
+  padding: 1rem 0.5rem;
+  margin-left: 1rem;
+  background-color: rgba(0, 0, 0, 0.11);
+  text-shadow: 0 0 1px black;
+  transition: all 0.2s;
+}
+.keys-text {
+  font-size: 5rem;
+  color: white;
+  display: inline-block;
+}
+.keys-sound {
+  color: #ffc600;
+  display: block;
+  letter-spacing: 1px;
+}
+
+.playing {
+  transform: scale(1.2);
+  border-color: #ffc600;
+  box-shadow: 0 0 5px #ffc600;
+}
+
+/*# sourceMappingURL=style.css.map */

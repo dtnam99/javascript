@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="keys">
+        <div data-key="65" class="keys-item">
+            <kbd class="keys-text">A</kbd>
+            <span class="keys-sound">Clapping</span>
+        </div>
+        <div  data-key="83" class="keys-item">
+            <kbd class="keys-text">S</kbd>
+            <span class="keys-sound">Hi hat</span>
+        </div>
+        <div  data-key="68" class="keys-item">
+            <kbd class="keys-text">D</kbd>
+            <span class="keys-sound">Bass</span>
+        </div>
+        <div  data-key="70" class="keys-item">
+            <kbd class="keys-text">F</kbd>
+            <span class="keys-sound">Cymbal</span>
+        </div>
+        <div  data-key="71" class="keys-item">
+            <kbd class="keys-text">G</kbd>
+            <span class="keys-sound">Clapping</span>
+        </div>
+    </div>
+    <audio data-key="65" src="http://dight310.byu.edu/media/audio/FreeLoops.com/4/4/Hand%20Clap.wav-20385-Free-Loops.com.mp3"></audio>
+    <audio data-key="83" src="sounds/hihat.mp3"></audio>
+    <audio data-key="68" src="sounds/bass.mp3"></audio>
+    <audio data-key="70" src="sounds/cymbal.mp3"></audio>
+    <audio data-key="71" src="sounds/Stick.mp3"></audio>
+    <script>
+        function playSound(e) {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+            const key = document.querySelector(`.keys-item[data-key="${e.keyCode}"]`)
+            if(!audio) return;
+            audio.currenTime = 0;
+            audio.play();
+            key.classList.add('playing');
+        }       
+        function removeTransition(e) {
+            if(e.propertyName !== 'transform') return;
+            
+            this.classList.remove('playing');
+        }
+        const keys = document.querySelectorAll('.keys-item');
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+        window.addEventListener('keydown', playSound);
+    </script>
+</body>
+</html>
